@@ -1,4 +1,4 @@
-package chat.rocket.reactnative;
+package com.secureutility.chat;
 
 import android.content.SharedPreferences;
 
