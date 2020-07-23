@@ -28,6 +28,52 @@ https://reactnative.dev/docs/signed-apk-android
 
 `npx react-native run-android --variant=release
 
+
+## How I did it:
+
+checkout this project
+go to the proj dir
+npm install
+then npx react-native run-android
+
+
+
+## Build release
+
+Download this: https://www.microsoft.com/en-us/download/details.aspx?id=48145 - already have that
+
+disable Hermes in app/build.gradle -- enableHermes: false
+
+cd android
+.\gradlew clean
+.\gradlew stop
+.\gradlew bundleRelease
+.\gradlew assembleRelease
+for bundle (test)
+
+
+back to
+cd ..  (main proj dir)
+npx react-native run-android --variant=release
+
+
+
+## Issues
+
+Following the official react native publishing tutorial to the point where you have to gradlew bundleRelease (your app has to be signed)
+
+If that command fails, then:
+-Go to android/app/src/main/res
+-Delete the drawable(s) folder(s) and raws folder
+-gradlew clean then gradlew --stop just to be safe
+-Run gradlew bundleRelease
+The build should succeed with your app.aad build file saved under android/app/build/outputs/bundle/release/app.aab
+
+Edit 0: The files being deleted are leftovers that interfere with Task :app:bundleReleaseJsAndAssets, looking a bit further into the logs shows errors about duplicate assets.
+Edit 1: Unless you need an apk for a very specific reason, using aab is always a better practice (for a lower app size mainly)
+
+
+
 ## Download
 
 ### Official apps
