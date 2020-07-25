@@ -15,6 +15,16 @@ steps:
 
 - script: yarn install
 
+- task: DownloadSecureFile@1
+  name: googleJSON
+  displayName: 'Download Google Services config'
+  inputs:
+    secureFile: 'google-services.json'
+
+- script: |
+    echo Installing $(googleJSON.secureFilePath) to the android/app/ directory...
+    sudo cp $(googleJSON.secureFilePath) $(Build.SourcesDirectory)/android/app/
+
 - task: Gradle@2
   inputs:
     workingDirectory: 'android/'
