@@ -2,6 +2,7 @@
 # Build your Android project with Gradle.
 # Add steps that test, sign, and distribute the APK, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/android
+# using as guide: https://techcommunity.microsoft.com/t5/windows-dev-appconsult/using-azure-devops-to-create-a-ci-cd-pipeline-for-an-android/ba-p/1094422
 
 trigger:
 - master
@@ -22,14 +23,30 @@ steps:
     secureFile: 'google-services.json'
 
 - script: |
-    echo Installing $(googleJSON.secureFilePath) to the android/app/ directory...
+    echo Installing $(googleJSON.secureFilePath) to the $(Build.SourcesDirectory)/android/app/ directory...
     sudo cp $(googleJSON.secureFilePath) $(Build.SourcesDirectory)/android/app/
 
 - task: Gradle@2
   inputs:
     workingDirectory: 'android/'
     gradleWrapperFile: 'android/gradlew'
+    options: '-PversionName=$(Build.BuildNumber) -PversionCode=$(Build.BuildId)'
     gradleOptions: '-Xmx3072m'
     publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
     tasks: 'assembleDebug'
+
+- task: AndroidSigning@3
+  inputs:
+    apkFiles: '**/*.apk'
+    apksignerKeystoreFile: 'my-upload-key.keystore'
+    apksignerKeystorePassword: '$(KeyStorePassword)'
+    apksignerKeystoreAlias: '$(KeyAlias)'
+    apksignerKeyPassword: '$(KeyPassword)'
+    zipalign: false
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'android/app/build/outputs/apk/release'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'

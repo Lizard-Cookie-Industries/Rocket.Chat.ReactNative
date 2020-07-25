@@ -138,21 +138,19 @@ android {
         applicationId APPLICATIONID as String
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode VERSIONCODE as Integer
-        versionName VERSIONNAME as String
+        versionCode rootProject.ext.versionCode
+		versionName rootProject.ext.versionName
         vectorDrawables.useSupportLibrary = true
         manifestPlaceholders = [BugsnagAPIKey: BugsnagAPIKey as String]
         missingDimensionStrategy "RNNotifications.reactNativeVersion", "reactNative60" // See note below!
     }
 
     signingConfigs {
-        release {
-            if (project.hasProperty('KEYSTORE')) {
-                storeFile file(KEYSTORE)
-                storePassword KEYSTORE_PASSWORD
-                keyAlias KEY_ALIAS
-                keyPassword KEY_PASSWORD
-            }
+        debug {
+            storeFile file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
         }
     }
     splits {
@@ -164,10 +162,12 @@ android {
         }
     }
     buildTypes {
-        release {
+        debug {
+			signingConfig signingConfigs.debug
+		}
+		release {
             minifyEnabled enableProguardInReleaseBuilds
             setProguardFiles([getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'])
-            signingConfig signingConfigs.release
         }
     }
 
