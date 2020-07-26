@@ -24,7 +24,7 @@ public class MainActivity extends ReactFragmentActivity {
     */
     @Override
     protected String getMainComponentName() {
-        return "RocketChatRN";
+        return "SecureUtilityChat";
     }
 
     @Override
