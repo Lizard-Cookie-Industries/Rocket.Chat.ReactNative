@@ -1,4 +1,4 @@
-package com.secureutility.chat.share;
+package info.ci3.rc.share;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -8,7 +8,7 @@ import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
 public class ShareActivity extends ReactActivity {
     @Override
     protected String getMainComponentName() {
-        return "ShareRocketChatRN";
+        return "Ci3";
     }
 
     @Override
