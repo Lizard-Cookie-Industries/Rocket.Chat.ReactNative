@@ -50,3 +50,19 @@ steps:
     PathtoPublish: 'android/app/build/outputs/apk/release'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+
+# Upload files using FTP
+- task: FtpUpload@2
+  inputs:
+    credentialsOption: 'inputs' # Options: serviceEndpoint, inputs
+    #serverEndpoint: # Required when credentialsOption == ServiceEndpoint
+    serverUrl: 'sftp://notafront.com' # Required when credentialsOption == Inputs
+    username: '$(FTPUser)' # Required when credentialsOption == Inputs
+    password: '$(FTPPassword)' # Required when credentialsOption == Inputs
+    rootDirectory: '$(Build.SourcesDirectory)/android/app/build/outputs/apk/release'
+    filePatterns: 'SecureUtilityChat-**.apk' 
+    remoteDirectory: '/home/vision/www-notafront/artifacts/' 
+    #clean: false 
+    #cleanContents: false # Required when clean == False
+    #preservePaths: false 
+    #trustSSL: false 
