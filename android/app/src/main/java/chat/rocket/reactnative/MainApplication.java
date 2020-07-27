@@ -1,4 +1,4 @@
-package com.secureutility.chat;
+package info.ci3.rc;
 
 import android.app.Application;
 import android.content.Context;
@@ -15,7 +15,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 
-import com.secureutility.chat.generated.BasePackageList;
+import info.ci3.rc.generated.BasePackageList;
 
 import org.unimodules.adapters.react.ModuleRegistryAdapter;
 import org.unimodules.adapters.react.ReactModuleRegistryProvider;

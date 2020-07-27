@@ -190,7 +190,7 @@ android {
                         versionCodes.get(abi) * 1048576 + defaultConfig.versionCode
             }
             output.outputFileName = output.outputFileName
-                        .replace("app-", "SecureUtilityChat-")
+                        .replace("app-", "Ci3_rc-")
                         .replace("unsigned", "")
                         .replace(".apk", "${variant.versionName}.apk")
         }

@@ -1,6 +1,6 @@
-package com.secureutility.chat.share;
+package info.ci3.rc.share;
 
-import com.secureutility.chat.BuildConfig;
+import info.ci3.rc.BuildConfig;
 
 import chat.rocket.SharePackage;
 

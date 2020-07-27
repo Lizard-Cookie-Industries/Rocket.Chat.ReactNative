@@ -1,4 +1,4 @@
-package com.secureutility.chat.generated;
+package info.ci3.rc.generated;
 
 import java.util.Arrays;
 import java.util.List;

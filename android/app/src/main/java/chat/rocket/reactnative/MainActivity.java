@@ -1,4 +1,4 @@
-package com.secureutility.chat;
+package info.ci3.rc;
 
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
@@ -24,7 +24,7 @@ public class MainActivity extends ReactFragmentActivity {
     */
     @Override
     protected String getMainComponentName() {
-        return "SecureUtilityChat";
+        return "Ci3";
     }
 
     @Override

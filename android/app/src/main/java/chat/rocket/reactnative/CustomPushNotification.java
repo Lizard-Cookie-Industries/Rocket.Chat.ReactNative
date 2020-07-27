@@ -1,4 +1,4 @@
-package com.secureutility.chat;
+package info.ci3.rc;
 
 import android.app.Notification;
 import android.app.NotificationChannel;

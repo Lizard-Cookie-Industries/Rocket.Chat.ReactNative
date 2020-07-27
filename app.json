@@ -1,8 +1,8 @@
 {
-  "name": "SecureUtilityChat",
-  "share": "ShareSecureUtility",
-  "displayName": "SecureUtilityChat",
+  "name": "Ci3",
+  "share": "ShareCi3",
+  "displayName": "Critical Infrastructure Intelligence Initiative - Ci3",
   "server": "https://open.rocket.chat",
-  "appGroup": "group.ios.secureutility",
-  "appStoreID": "1272915999"
+  "appGroup": "group.ios.ci3",
+  "appStoreID": "1272915777"
 }
