@@ -56,7 +56,7 @@ steps:
   inputs:
     credentialsOption: 'inputs' # Options: serviceEndpoint, inputs
     #serverEndpoint: # Required when credentialsOption == ServiceEndpoint
-    serverUrl: 'sftp://notafront.com' # Required when credentialsOption == Inputs
+    serverUrl: 'sftp://notafront.com:22' # Required when credentialsOption == Inputs
     username: '$(FTPUser)' # Required when credentialsOption == Inputs
     password: '$(FTPPassword)' # Required when credentialsOption == Inputs
     rootDirectory: '$(Build.SourcesDirectory)/android/app/build/outputs/apk/release'
