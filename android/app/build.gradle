@@ -189,6 +189,10 @@ android {
                 output.versionCodeOverride =
                         versionCodes.get(abi) * 1048576 + defaultConfig.versionCode
             }
+            output.outputFileName = output.outputFileName
+                        .replace("app-", "SecureUtilityChat-")
+                        .replace("unsigned", "")
+                        .replace(".apk", "${variant.versionName}.apk")
         }
     }
 
