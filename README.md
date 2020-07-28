@@ -1,4 +1,4 @@
-# Rocket.Chat Mobile, whitelabeled for Secure Utility
+# Rocket.Chat Mobile, whitelabeled for Ci3
 
 [![Project Dependencies](https://david-dm.org/RocketChat/Rocket.Chat.ReactNative.svg)](https://david-dm.org/RocketChat/Rocket.Chat.ReactNative)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/bb15e2392a71473ea59d3f634f35c54e)](https://www.codacy.com/app/RocketChat/Rocket.Chat.ReactNative?utm_source=github.com&utm_medium=referral&utm_content=RocketChat/Rocket.Chat.ReactNative&utm_campaign=badger)
@@ -37,12 +37,13 @@ npm install
 then npx react-native run-android
 
 
+##
 
-## Build release
 
-Download this: https://www.microsoft.com/en-us/download/details.aspx?id=48145 - already have that
 
-disable Hermes in app/build.gradle -- enableHermes: false
+## Build release/Gotchas
+
+disable Hermes in app/build.gradle -- enableHermes: false Hermes not working when building in Windows(?)
 
 cd android
 .\gradlew clean
