@@ -2,7 +2,7 @@
   "name": "Ci3",
   "share": "ShareCi3",
   "displayName": "Critical Infrastructure Intelligence Initiative - Ci3",
-  "server": "https://open.rocket.chat",
+  "server": "https://ci3.dc.secureutility.com",
   "appGroup": "group.ios.ci3",
   "appStoreID": "1272915777"
 }
